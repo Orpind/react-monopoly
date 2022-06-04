@@ -1,0 +1,134 @@
+.control-panel {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__header-block {
+    &--title {
+      font-size: 0.6rem;
+    }
+
+    &--value {
+      font-weight: 700;
+    }
+
+    &--time,
+    &--value {
+      &.time {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.players {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding-right: 1rem;
+}
+
+.player {
+  border: 0.1rem solid #000;
+  padding: 0.1rem;
+  border-radius: 2px;
+
+  &--brown {
+    border-color: #7f4e27;
+    background-color: rgba(#7f4e27, 0.5);
+  }
+
+  &--light-blue {
+    border-color: #93d4f6;
+    background-color: rgba(#93d4f6, 0.5);
+  }
+
+  &--purple {
+    border-color: #c93277;
+    background-color: rgba(#c93277, 0.5);
+  }
+
+  &--orange {
+    border-color: #eb9a0c;
+    background-color: rgba(#eb9a0c, 0.5);
+  }
+
+  &--red {
+    border-color: #dd0728;
+    background-color: rgba(#dd0728, 0.5);
+  }
+
+  &--yellow {
+    border-color: #ebec37;
+    background-color: rgba(#ebec37, 0.5);
+  }
+
+  &--green {
+    border-color: #00ac58;
+    background-color: rgba(#00ac58, 0.5);
+  }
+
+  &--dark-blue {
+    border-color: #4166ad;
+    background-color: rgba(#4166ad, 0.5);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__volume {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.3;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: auto;
+}
+
+.button {
+  background-color: #93d4f6;
+  border: none;
+  border-radius: 2px;
+  height: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:first-child {
+    flex-grow: 1;
+  }
+}
+
+.image-button {
+  width: 2rem;
+
+  img {
+    width: 1rem;
+    height: 1rem;
+  }
+}
