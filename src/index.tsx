@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import {GameBoardScreen} from "./views";
-import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
-import './global.scss'
+import { GameBoardScreen } from './views';
+import './global.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-      <ScopedCssBaseline>
-        <GameBoardScreen/>
-      </ScopedCssBaseline>
+    <GameBoardScreen />
   </React.StrictMode>
 );
 

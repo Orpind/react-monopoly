@@ -1,0 +1,18 @@
+.go-to-jail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
+  &__text {
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

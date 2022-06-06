@@ -1,0 +1,38 @@
+.jail {
+  padding-top: 0.02rem;
+  height: 100%;
+
+  &__top-text {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-left: 20%;
+    height: 20%;
+  }
+
+  &__footer {
+    display: flex;
+    height: 80%;
+  }
+
+  &__left-text {
+    transform: rotate(-90deg) translateY(40%);
+    font-size: 0.8rem;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-top: 0.1rem dashed #000;
+    border-left: 0.1rem dashed #000;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &__image {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

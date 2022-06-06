@@ -1,0 +1,31 @@
+.cell-start {
+  text-transform: uppercase;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1060px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 910px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 721px) {
+    font-size: 8px;
+  }
+
+  &__title {
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  &__description {
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;
+  }
+}

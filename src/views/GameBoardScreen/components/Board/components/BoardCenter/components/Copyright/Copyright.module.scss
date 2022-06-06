@@ -1,0 +1,15 @@
+.info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  height: 100%;
+
+  &__button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
