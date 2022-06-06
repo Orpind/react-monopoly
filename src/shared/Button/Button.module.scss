@@ -2,7 +2,12 @@
   background-color: #93d4f6;
   border: none;
   border-radius: 2px;
-  height: 2rem;
+  padding: 0.3rem;
   text-transform: uppercase;
   font-weight: 700;
+  transition: background-color .1s linear;
+
+  &:active {
+    background-color: #236e95;
+  }
 }

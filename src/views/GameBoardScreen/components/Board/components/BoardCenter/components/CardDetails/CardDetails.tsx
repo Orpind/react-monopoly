@@ -3,6 +3,7 @@ import cls from 'classnames';
 
 import { CellInterface, CellType } from '../../../../../../../../modules';
 import trainImage from '../../../../../../../../assets/images/train.png';
+import { Button } from '../../../../../../../../shared';
 
 import classes from './CardDetails.module.scss';
 
@@ -54,9 +55,7 @@ export const CardDetails: FC<CardDetailsProps> = ({
         <div className={classes['card__price']}>${selectedCard?.price}M</div>
       </div>
       <div className={classes['card__info']}>
-        <button className={classes['button']} onClick={onClose}>
-          Close
-        </button>
+        <Button onClick={onClose}>Close</Button>
         <div className={classes['info__row']}>
           <span>Level:&nbsp;</span>
           <span>{selectedCard?.level || 0}</span>
@@ -67,16 +66,13 @@ export const CardDetails: FC<CardDetailsProps> = ({
         </div>
         {selectedCard?.level && selectedCard?.level > 0 ? (
           <>
-            <button
-              className={classes['button']}
-              disabled={selectedCard?.level === 5}
-            >
+            <Button onClick={() => {}} disabled={selectedCard?.level === 5}>
               Upgrade
-            </button>
-            <button className={classes['button']}>Downgrade</button>
+            </Button>
+            <Button onClick={() => {}}>Downgrade</Button>
           </>
         ) : (
-          <button className={classes['button']}>Buy</button>
+          <Button onClick={() => {}}>Buy</Button>
         )}
       </div>
     </div>

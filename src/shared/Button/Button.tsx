@@ -7,11 +7,21 @@ export interface ButtonProps {
   onClick: () => void;
   children?: JSX.Element | string;
   className?: string;
+  disabled?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({ children, onClick, className }) => {
+export const Button: FC<ButtonProps> = ({
+  children,
+  onClick,
+  className,
+  disabled,
+}) => {
   return (
-    <button onClick={onClick} className={cls([classes['button'], className])}>
+    <button
+      disabled={disabled}
+      onClick={onClick}
+      className={cls([classes['button'], className])}
+    >
       {children}
     </button>
   );

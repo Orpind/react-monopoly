@@ -18,11 +18,19 @@ export const BoardCenter: FC<BoardCenterProps> = ({
 
   return (
     <div className={classes['center']}>
-      {showInfo && <Copyright onClose={() => setShowInfo(false)} />}
-      {selectedCard ? (
-        <CardDetails onClose={onClearSelected} selectedCard={selectedCard} />
+      {showInfo ? (
+        <Copyright onClose={() => setShowInfo(false)} />
       ) : (
-        <MainCenter onShowInfo={() => setShowInfo(true)} />
+        <>
+          {selectedCard ? (
+            <CardDetails
+              onClose={onClearSelected}
+              selectedCard={selectedCard}
+            />
+          ) : (
+            <MainCenter onShowInfo={() => setShowInfo(true)} />
+          )}
+        </>
       )}
     </div>
   );

@@ -1,8 +1,12 @@
 .main-center {
   display: flex;
-  padding: 4rem 1rem;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 
   &__info-button {
     text-transform: lowercase !important;
@@ -13,54 +17,10 @@
     bottom: 1rem;
   }
 
-  &__logo-group {
+  &__content {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  &__houses {
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: 0.5rem;
-    }
-  }
-
-  .card {
-
-    &__title {
-      text-align: center;
-      font-size: 0.6rem;
-      font-weight: 700;
-    }
-
-    &__image {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    &__quantity {
-      font-weight: 700;
-    }
-  }
-
-  &__powered {
-    font-size: 0.6rem;
-    text-align: center;
-  }
-
-  &__title {
     padding: 0 1rem;
-    background-color: #dd0728;
-    color: #fff;
     width: 100%;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
   }
 
   &__general {
@@ -70,28 +30,13 @@
     width: 100%;
     padding: 0 0.5rem;
     justify-content: space-between;
-    height: 100%;
   }
 
-  &__infos {
+  &__houses {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding-top: 1rem;
-  }
-
-  &__card {
-    border: 0.1rem solid #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 50%;
-
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+    margin-top: 2rem;
   }
 }

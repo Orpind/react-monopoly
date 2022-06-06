@@ -6,6 +6,7 @@ import chestImage from '../../../../../../../../assets/images/chest.png';
 
 import classes from './MainCenter.module.scss';
 import { Button } from '../../../../../../../../shared';
+import { Card, House, Logo } from './components';
 
 export interface MainCenterProps {
   onShowInfo: () => void;
@@ -20,33 +21,21 @@ export const MainCenter: FC<MainCenterProps> = ({ onShowInfo }) => {
       >
         i
       </Button>
-      <div className={classes['main-center__card']}>
-        <span className={classes['card__title']}>Chance</span>
-        <span className={classes['card__image']}>?</span>
-        <span className={classes['card__quantity']}>20/20</span>
-      </div>
-      <div className={classes['main-center__general']}>
-        <div className={classes['main-center__logo-group']}>
-          <div className={classes['main-center__title']}>Monopoly</div>
-          <span className={classes['main-center__powered']}>
-            powered by Dymyrtrii Tretiakov
-          </span>
-        </div>
-        <div className={classes['main-center__infos']}>
+      <div className={classes['main-center__content']}>
+        <Card title={'Chance'} max={20} current={15} symbol={'?'} />
+        <div className={classes['main-center__general']}>
+          <Logo />
           <div className={classes['main-center__houses']}>
-            <img src={homeGreenImage} alt="" />
-            <span>15/20</span>
-          </div>
-          <div className={classes['main-center__houses']}>
-            <img src={homeRedImage} alt="" />
-            <span>20/20</span>
+            <House image={homeGreenImage} current={10} max={20} />
+            <House image={homeRedImage} current={10} max={20} />
           </div>
         </div>
-      </div>
-      <div className={classes['main-center__card']}>
-        <span className={classes['card__title']}>Community chest</span>
-        <img className={classes['card__image']} src={chestImage} alt="" />
-        <span className={classes['card__quantity']}>20/20</span>
+        <Card
+          title={'Community chest'}
+          max={20}
+          current={15}
+          image={chestImage}
+        />
       </div>
     </div>
   );
