@@ -8,6 +8,7 @@ import lampImage from '../../../../../../../../assets/images/lamp.png';
 import dropImage from '../../../../../../../../assets/images/drop.png';
 
 import classes from './SpecialProperty.module.scss';
+import { moneyFormat } from '../../../../../../../../utils';
 
 export interface SpecialPropertyProps {
   cell: CellInterface;
@@ -43,7 +44,9 @@ export const SpecialProperty: FC<SpecialPropertyProps> = ({
           src={dropImage}
           alt="train"
         />
-        <div className={classes['special__price']}>${cell.price}B</div>
+        <div className={classes['special__price']}>
+          {moneyFormat(Number(cell.price))}
+        </div>
       </div>
     </CellContainer>
   );

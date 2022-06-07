@@ -5,11 +5,12 @@ import microphoneImage from '../../../../assets/images/microphone.png';
 import diceImage from '../../../../assets/images/dice.png';
 import tradeImage from '../../../../assets/images/trade.png';
 
-import { Button, ButtonWithIcon } from '../../../../shared';
+import { ButtonWithIcon } from '../../../../shared';
 import { players } from '../../../../modules';
 import { Player } from './components';
 
 import classes from './ControlPanel.module.scss';
+import { moneyFormat } from '../../../../utils';
 
 export const ControlPanel = () => {
   return (
@@ -20,7 +21,7 @@ export const ControlPanel = () => {
             Balance
           </div>
           <div className={classes['control-panel__header-block--value']}>
-            $104 000 000
+            {moneyFormat(1800)}
           </div>
         </div>
         <div className={classes['control-panel__header-block']}>

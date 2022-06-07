@@ -12,6 +12,7 @@ import dropImage from '../../../../../../../../assets/images/drop.png';
 import { Button } from '../../../../../../../../shared';
 
 import classes from './CardDetails.module.scss';
+import { moneyFormat } from '../../../../../../../../utils';
 
 export interface CardDetailsProps {
   onClose: () => void;
@@ -64,11 +65,15 @@ export const CardDetails: FC<CardDetailsProps> = ({
                   [classes['bold']]: idx + 1 === selectedCard?.levelInfo?.level,
                 })}
               >
-                {idx + 1} {selectedCard?.levelInfo?.label} - ${r}M
+                {`${idx + 1} ${selectedCard?.levelInfo?.label} - ${moneyFormat(
+                  Number(r)
+                )}`}
               </span>
             ))}
         </div>
-        <div className={classes['card__price']}>${selectedCard?.price}M</div>
+        <div className={classes['card__price']}>
+          {moneyFormat(Number(selectedCard?.price))}
+        </div>
       </div>
       <div className={classes['card__info']}>
         <Button onClick={onClose}>Close</Button>
@@ -95,7 +100,12 @@ export const CardDetails: FC<CardDetailsProps> = ({
             </div>
           </>
         ) : (
-          <Button onClick={() => {}}>Buy</Button>
+          <>
+            <div className={classes['button-wrapper']}>
+              <Button onClick={() => {}}>Buy</Button>
+              <Button onClick={() => {}}>Auction</Button>
+            </div>
+          </>
         )}
       </div>
     </div>

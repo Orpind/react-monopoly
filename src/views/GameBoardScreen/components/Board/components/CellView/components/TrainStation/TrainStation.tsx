@@ -7,6 +7,7 @@ import { CellInterface } from '../../../../../../../../modules';
 import trainImage from '../../../../../../../../assets/images/train.png';
 
 import classes from './TrainStation.module.scss';
+import { moneyFormat } from '../../../../../../../../utils';
 
 export interface TrainStationProps {
   cell: CellInterface;
@@ -27,7 +28,9 @@ export const TrainStation: FC<TrainStationProps> = ({ cell, onSelect }) => {
           src={trainImage}
           alt="train"
         />
-        <div className={classes['train-station__price']}>${cell.price}M</div>
+        <div className={classes['train-station__price']}>
+          {moneyFormat(Number(cell.price))}
+        </div>
       </div>
     </CellContainer>
   );

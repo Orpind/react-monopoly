@@ -16,6 +16,7 @@ import {
 } from '../../../../../../modules';
 
 import classes from './Player.module.scss';
+import { moneyFormat } from '../../../../../../utils';
 
 export interface PlayerProps {
   player: PlayerInterface;
@@ -58,7 +59,9 @@ export const Player: FC<PlayerProps> = ({ player }) => {
           src={figureImage(player.figure)}
           alt=""
         />
-        <div className={classes['player__balance']}>${player.balance}B</div>
+        <div className={classes['player__balance']}>
+          {moneyFormat(player.balance)}
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import homeGreenImage from '../../../../../../../../assets/images/home-green.png
 import homeRedImage from '../../../../../../../../assets/images/home-red.png';
 
 import classes from './Property.module.scss';
+import { moneyFormat } from '../../../../../../../../utils';
 
 export interface PropertyProps {
   cell: CellInterface;
@@ -45,7 +46,9 @@ export const Property: FC<PropertyProps> = ({ cell, onSelect }) => {
           )}
         </div>
         {/*<div className={classes['property__title']}>{cell.title}</div>*/}
-        <div className={classes['property__price']}>${cell.price}M</div>
+        <div className={classes['property__price']}>
+          {moneyFormat(Number(cell.price))}
+        </div>
       </div>
     </CellContainer>
   );
