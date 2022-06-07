@@ -8,15 +8,22 @@ import classes from '../../Board.module.scss';
 
 export interface BoardCenterProps {
   selectedCard: CellInterface | null;
+  clearSelection: () => void;
 }
 
-export const BoardCenter: FC<BoardCenterProps> = ({ selectedCard }) => {
+export const BoardCenter: FC<BoardCenterProps> = ({
+  selectedCard,
+  clearSelection,
+}) => {
   const viewManagerRef = useRef<ViewManagerHandle>(null);
 
   const views = {
     cardDetails: (
       <CardDetails
-        onClose={() => viewManagerRef?.current?.setView('mainCenter')}
+        onClose={() => {
+          viewManagerRef?.current?.setView('mainCenter');
+          clearSelection();
+        }}
         selectedCard={selectedCard}
       />
     ),

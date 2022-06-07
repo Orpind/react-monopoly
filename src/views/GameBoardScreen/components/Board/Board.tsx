@@ -10,7 +10,10 @@ export const Board: FC = () => {
   const [selectedCard, setSelectedCard] = useState<CellInterface | null>(null);
   return (
     <div className={classes['board']}>
-      <BoardCenter selectedCard={selectedCard} />
+      <BoardCenter
+        selectedCard={selectedCard}
+        clearSelection={() => setSelectedCard(null)}
+      />
       {board.cells.map((cell: CellInterface) => (
         <CellView
           type={cell.type}
