@@ -23,6 +23,7 @@ export const CardDetails: FC<CardDetailsProps> = ({
   onClose,
   selectedCard,
 }) => {
+  const canControl = true;
   const getCardHeader = (
     type: CellType,
     specialType?: SpecialType
@@ -52,7 +53,12 @@ export const CardDetails: FC<CardDetailsProps> = ({
   };
 
   return (
-    <div className={classes['card-details']}>
+    <div
+      className={cls([
+        classes['card-details'],
+        { [classes['card-details--center']]: !canControl },
+      ])}
+    >
       <div className={classes['card-details__card']}>
         {selectedCard &&
           getCardHeader(selectedCard.type, selectedCard.specialType)}
@@ -75,39 +81,41 @@ export const CardDetails: FC<CardDetailsProps> = ({
           {moneyFormat(Number(selectedCard?.price))}
         </div>
       </div>
-      <div className={classes['card__info']}>
-        <Button onClick={onClose}>Close</Button>
-        <div>
-          <div className={classes['info-row']}>
-            <span>Level:&nbsp;</span>
-            <span>{selectedCard?.levelInfo?.level || 0}</span>
+      {canControl && (
+        <div className={classes['card__info']}>
+          <Button onClick={onClose}>Close</Button>
+          <div>
+            <div className={classes['info-row']}>
+              <span>Level:&nbsp;</span>
+              <span>{selectedCard?.levelInfo?.level || 0}</span>
+            </div>
+            <div className={classes['info-row']}>
+              <span>Owner:&nbsp;</span>
+              <span>{selectedCard?.owner || 'For sale!'}</span>
+            </div>
           </div>
-          <div className={classes['info-row']}>
-            <span>Owner:&nbsp;</span>
-            <span>{selectedCard?.owner || 'For sale!'}</span>
-          </div>
+          {selectedCard?.owner ? (
+            <>
+              <div className={classes['button-wrapper']}>
+                <Button
+                  onClick={() => {}}
+                  disabled={selectedCard?.levelInfo?.level === 5}
+                >
+                  Upgrade
+                </Button>
+                <Button onClick={() => {}}>Downgrade</Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={classes['button-wrapper']}>
+                <Button onClick={() => {}}>Buy</Button>
+                <Button onClick={() => {}}>Auction</Button>
+              </div>
+            </>
+          )}
         </div>
-        {selectedCard?.owner ? (
-          <>
-            <div className={classes['button-wrapper']}>
-              <Button
-                onClick={() => {}}
-                disabled={selectedCard?.levelInfo?.level === 5}
-              >
-                Upgrade
-              </Button>
-              <Button onClick={() => {}}>Downgrade</Button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className={classes['button-wrapper']}>
-              <Button onClick={() => {}}>Buy</Button>
-              <Button onClick={() => {}}>Auction</Button>
-            </div>
-          </>
-        )}
-      </div>
+      )}
     </div>
   );
 };

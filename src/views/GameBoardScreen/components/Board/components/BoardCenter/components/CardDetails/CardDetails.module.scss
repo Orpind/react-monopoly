@@ -3,8 +3,13 @@
   padding: 1rem;
   width: 100%;
   justify-content: space-between;
+  align-content: center;
   height: 100%;
   box-sizing: border-box;
+
+  &--center {
+    justify-content: center;
+  }
 
   .card {
     &__details {

@@ -128,6 +128,13 @@ export const Copyright: FC<CopyrightProps> = ({ onClose }) => {
         <a href="https://www.flaticon.com/free-icons/trade" title="trade icons">
           Trade
         </a>
+        ,&nbsp;
+        <a
+          href="https://www.flaticon.com/free-icons/orientation"
+          title="orientation icons"
+        >
+          Orientation
+        </a>
         ,&nbsp; from&nbsp;
         <a
           target="_blank"
