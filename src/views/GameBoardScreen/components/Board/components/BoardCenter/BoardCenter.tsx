@@ -1,37 +1,46 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import { CellInterface } from '../../../../../../modules';
 import { CardDetails, MainCenter, Copyright } from './components';
+import { ViewManager, ViewManagerHandle } from '../../../../../../shared';
 
 import classes from '../../Board.module.scss';
 
 export interface BoardCenterProps {
   selectedCard: CellInterface | null;
-  onClearSelected: () => void;
 }
 
-export const BoardCenter: FC<BoardCenterProps> = ({
-  selectedCard,
-  onClearSelected,
-}) => {
-  const [showInfo, setShowInfo] = useState<boolean>(false);
+export const BoardCenter: FC<BoardCenterProps> = ({ selectedCard }) => {
+  const viewManagerRef = useRef<ViewManagerHandle>(null);
+
+  const views = {
+    cardDetails: (
+      <CardDetails
+        onClose={() => viewManagerRef?.current?.setView('mainCenter')}
+        selectedCard={selectedCard}
+      />
+    ),
+    mainCenter: (
+      <MainCenter
+        onShowInfo={() => viewManagerRef?.current?.setView('copyright')}
+      />
+    ),
+    copyright: <Copyright onClose={() => viewManagerRef?.current?.back()} />,
+  };
+
+  useEffect(() => {
+    if (selectedCard) {
+      viewManagerRef?.current?.setView('cardDetails');
+    }
+  }, [selectedCard]);
 
   return (
     <div className={classes['center']}>
-      {showInfo ? (
-        <Copyright onClose={() => setShowInfo(false)} />
-      ) : (
-        <>
-          {selectedCard ? (
-            <CardDetails
-              onClose={onClearSelected}
-              selectedCard={selectedCard}
-            />
-          ) : (
-            <MainCenter onShowInfo={() => setShowInfo(true)} />
-          )}
-        </>
-      )}
+      <ViewManager
+        views={views}
+        ref={viewManagerRef}
+        defaultView={'mainCenter'}
+      />
     </div>
   );
 };

@@ -1,8 +1,14 @@
 import { FC } from 'react';
 import cls from 'classnames';
 
-import { CellInterface, CellType } from '../../../../../../../../modules';
+import {
+  CellInterface,
+  CellType,
+  SpecialType,
+} from '../../../../../../../../modules';
 import trainImage from '../../../../../../../../assets/images/train.png';
+import lampImage from '../../../../../../../../assets/images/lamp.png';
+import dropImage from '../../../../../../../../assets/images/drop.png';
 import { Button } from '../../../../../../../../shared';
 
 import classes from './CardDetails.module.scss';
@@ -16,20 +22,39 @@ export const CardDetails: FC<CardDetailsProps> = ({
   onClose,
   selectedCard,
 }) => {
-  return (
-    <div className={classes['card-details']}>
-      <div className={classes['card-details__card']}>
-        {selectedCard?.type === CellType.TRAIN_STATION ? (
-          <img src={trainImage} alt="" />
-        ) : (
+  const getCardHeader = (
+    type: CellType,
+    specialType?: SpecialType
+  ): JSX.Element | null => {
+    switch (type) {
+      case CellType.TRAIN_STATION:
+        return <img src={trainImage} alt="train" />;
+      case CellType.PROPERTY:
+        return (
           <div
             className={cls([
               classes['card__color'],
               classes[`card__color--${selectedCard?.color}`],
             ])}
           />
-        )}
+        );
+      case CellType.SPECIAL_PROPERTY:
+        return (
+          <img
+            src={specialType === SpecialType.LAMP ? lampImage : dropImage}
+            alt="train"
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
+  return (
+    <div className={classes['card-details']}>
+      <div className={classes['card-details__card']}>
+        {selectedCard &&
+          getCardHeader(selectedCard.type, selectedCard.specialType)}
         <div className={classes['card__title']}>{selectedCard?.title}</div>
         <div className={classes['card__details']}>
           {selectedCard?.type === CellType.TRAIN_STATION
@@ -56,13 +81,15 @@ export const CardDetails: FC<CardDetailsProps> = ({
       </div>
       <div className={classes['card__info']}>
         <Button onClick={onClose}>Close</Button>
-        <div className={classes['info__row']}>
-          <span>Level:&nbsp;</span>
-          <span>{selectedCard?.level || 0}</span>
-        </div>
-        <div className={classes['info__row']}>
-          <span>Owner:&nbsp;</span>
-          <span>{selectedCard?.owner || 'For sale!'}</span>
+        <div>
+          <div className={classes['info__row']}>
+            <span>Level:&nbsp;</span>
+            <span>{selectedCard?.level || 0}</span>
+          </div>
+          <div className={classes['info__row']}>
+            <span>Owner:&nbsp;</span>
+            <span>{selectedCard?.owner || 'For sale!'}</span>
+          </div>
         </div>
         {selectedCard?.level && selectedCard?.level > 0 ? (
           <>

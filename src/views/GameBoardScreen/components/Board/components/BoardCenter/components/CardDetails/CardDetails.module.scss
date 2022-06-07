@@ -4,6 +4,7 @@
   width: 100%;
   justify-content: space-between;
   height: 100%;
+  box-sizing: border-box;
 
   .info__row {
     span {
@@ -40,6 +41,7 @@
 
     &__price {
       margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     &__color {
@@ -87,7 +89,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 10rem;
+    width:50%;
 
     img {
       width: 1.5rem;
