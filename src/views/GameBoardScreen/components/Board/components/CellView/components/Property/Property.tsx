@@ -17,38 +17,36 @@ export interface PropertyProps {
 export const Property: FC<PropertyProps> = ({ cell, onSelect }) => {
   return (
     <CellContainer position={cell.position} onSelect={onSelect}>
-      <CellContainer position={cell.position} onSelect={onSelect}>
+      <div
+        className={cls(
+          [classes['property']],
+          classes[`property--${cell.rotation}`]
+        )}
+      >
         <div
-          className={cls(
-            [classes['property']],
-            classes[`property--${cell.rotation}`]
-          )}
+          className={cls([
+            classes['property__color'],
+            classes[`property__color--${cell.color}`],
+          ])}
         >
-          <div
-            className={cls([
-              classes['property__color'],
-              classes[`property__color--${cell.color}`],
-            ])}
-          >
-            {!cell.level ? null : cell.level < 5 ? (
-              new Array(cell.level)
-                .fill('')
-                .map((_, index) => (
-                  <img
-                    className={classes['home']}
-                    src={homeGreenImage}
-                    alt=""
-                    key={index}
-                  />
-                ))
-            ) : (
-              <img className={classes['home']} src={homeRedImage} alt="" />
-            )}
-          </div>
-          {/*<div className={classes['property__title']}>{cell.title}</div>*/}
-          <div className={classes['property__price']}>${cell.price}M</div>
+          {!cell.levelInfo?.level ? null : cell.levelInfo?.level < 5 ? (
+            new Array(cell.levelInfo?.level)
+              .fill('')
+              .map((_, index) => (
+                <img
+                  className={classes['home']}
+                  src={homeGreenImage}
+                  alt=""
+                  key={index}
+                />
+              ))
+          ) : (
+            <img className={classes['home']} src={homeRedImage} alt="" />
+          )}
         </div>
-      </CellContainer>
+        {/*<div className={classes['property__title']}>{cell.title}</div>*/}
+        <div className={classes['property__price']}>${cell.price}M</div>
+      </div>
     </CellContainer>
   );
 };

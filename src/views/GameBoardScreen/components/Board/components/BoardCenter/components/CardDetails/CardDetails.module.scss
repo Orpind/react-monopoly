@@ -6,12 +6,6 @@
   height: 100%;
   box-sizing: border-box;
 
-  .info__row {
-    span {
-      font-weight: 700;
-    }
-  }
-
   .card {
     &__details {
       display: flex;
@@ -89,12 +83,25 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width:50%;
+    width: 50%;
 
     img {
       width: 1.5rem;
       height: 1.5rem;
       margin-top: 1rem;
     }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-row {
+  font-size: 1rem;
+  span {
+    font-weight: 700;
   }
 }

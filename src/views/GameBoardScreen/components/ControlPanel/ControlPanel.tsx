@@ -2,6 +2,8 @@ import cls from 'classnames';
 
 import chatImage from '../../../../assets/images/chat.png';
 import microphoneImage from '../../../../assets/images/microphone.png';
+import diceImage from '../../../../assets/images/dice.png';
+import tradeImage from '../../../../assets/images/trade.png';
 
 import { Button, ButtonWithIcon } from '../../../../shared';
 import { players } from '../../../../modules';
@@ -46,9 +48,28 @@ export const ControlPanel = () => {
         ))}
       </div>
       <div className={classes['buttons']}>
-        <Button onClick={() => {}}>Roll the dice</Button>
-        <ButtonWithIcon onClick={() => {}} icon={chatImage} />
-        <ButtonWithIcon onClick={() => {}} icon={microphoneImage} />
+        <ButtonWithIcon
+          className={classes['image-button']}
+          onClick={() => {}}
+          icon={tradeImage}
+        />
+        <ButtonWithIcon
+          className={classes['image-button']}
+          onClick={() => {}}
+          icon={diceImage}
+        />
+        <ButtonWithIcon
+          className={classes['image-button']}
+          onClick={() => {}}
+          icon={chatImage}
+          disabled
+        />
+        <ButtonWithIcon
+          className={classes['image-button']}
+          onClick={() => {}}
+          icon={microphoneImage}
+          disabled
+        />
       </div>
     </div>
   );

@@ -12,9 +12,10 @@ export const ButtonWithIcon: FC<ButtonWithIconProps> = ({
   className,
   onClick,
   icon,
+  disabled,
 }) => {
   return (
-    <Button onClick={onClick} className={className}>
+    <Button onClick={onClick} className={className} disabled={disabled}>
       <>
         {icon && <img className={classes['image']} src={icon} alt="" />}
         {children}

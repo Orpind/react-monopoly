@@ -42,6 +42,12 @@ export type PositionType = {
   yEnd: number;
 };
 
+export type LevelInfoType = {
+  level: -1 | 0 | 1 | 2 | 3 | 4 | 5;
+  label: string;
+  rent: number[];
+};
+
 export interface CellInterface {
   type: CellType;
   color: PropertyColor;
@@ -52,6 +58,6 @@ export interface CellInterface {
   description?: string;
   price?: number;
   specialType?: SpecialType;
-  level?: -1 | 0 | 1 | 2 | 3 | 4 | 5;
   owner?: 1 | 2 | 3 | 4 | 5 | 6;
+  levelInfo?: LevelInfoType;
 }

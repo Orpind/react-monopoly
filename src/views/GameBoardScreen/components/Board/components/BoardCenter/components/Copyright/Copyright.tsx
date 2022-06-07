@@ -115,6 +115,19 @@ export const Copyright: FC<CopyrightProps> = ({ onClose }) => {
         >
           Yehor Lisnyi
         </a>
+        ,&nbsp;
+        <a
+          target="_blank"
+          href="https://www.flaticon.com/free-icons/dice"
+          title="Dice"
+          rel="noreferrer"
+        >
+          Dice
+        </a>
+        ,&nbsp;
+        <a href="https://www.flaticon.com/free-icons/trade" title="trade icons">
+          Trade
+        </a>
         ,&nbsp; from&nbsp;
         <a
           target="_blank"

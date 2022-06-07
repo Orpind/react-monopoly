@@ -57,46 +57,42 @@ export const CardDetails: FC<CardDetailsProps> = ({
           getCardHeader(selectedCard.type, selectedCard.specialType)}
         <div className={classes['card__title']}>{selectedCard?.title}</div>
         <div className={classes['card__details']}>
-          {selectedCard?.type === CellType.TRAIN_STATION
-            ? new Array(4).fill('').map((_, index) => (
-                <span
-                  className={cls({
-                    [classes['bold']]: index + 1 === selectedCard?.level,
-                  })}
-                >
-                  {index + 1} station - ${100 * (index + 1)}M
-                </span>
-              ))
-            : new Array(5).fill('').map((_, index) => (
-                <span
-                  className={cls({
-                    [classes['bold']]: index + 1 === selectedCard?.level,
-                  })}
-                >
-                  {index + 1} level - ${10 * (index + 1)}M
-                </span>
-              ))}
+          {selectedCard?.levelInfo &&
+            selectedCard.levelInfo.rent.map((r, idx) => (
+              <span
+                className={cls({
+                  [classes['bold']]: idx + 1 === selectedCard?.levelInfo?.level,
+                })}
+              >
+                {idx + 1} {selectedCard?.levelInfo?.label} - ${r}M
+              </span>
+            ))}
         </div>
         <div className={classes['card__price']}>${selectedCard?.price}M</div>
       </div>
       <div className={classes['card__info']}>
         <Button onClick={onClose}>Close</Button>
         <div>
-          <div className={classes['info__row']}>
+          <div className={classes['info-row']}>
             <span>Level:&nbsp;</span>
-            <span>{selectedCard?.level || 0}</span>
+            <span>{selectedCard?.levelInfo?.level || 0}</span>
           </div>
-          <div className={classes['info__row']}>
+          <div className={classes['info-row']}>
             <span>Owner:&nbsp;</span>
             <span>{selectedCard?.owner || 'For sale!'}</span>
           </div>
         </div>
-        {selectedCard?.level && selectedCard?.level > 0 ? (
+        {selectedCard?.owner ? (
           <>
-            <Button onClick={() => {}} disabled={selectedCard?.level === 5}>
-              Upgrade
-            </Button>
-            <Button onClick={() => {}}>Downgrade</Button>
+            <div className={classes['button-wrapper']}>
+              <Button
+                onClick={() => {}}
+                disabled={selectedCard?.levelInfo?.level === 5}
+              >
+                Upgrade
+              </Button>
+              <Button onClick={() => {}}>Downgrade</Button>
+            </div>
           </>
         ) : (
           <Button onClick={() => {}}>Buy</Button>
